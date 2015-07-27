@@ -45,6 +45,7 @@ static const void *UIAlertViewShouldEnableFirstOtherButtonBlockKey  = &UIAlertVi
 + (instancetype)showWithTitle:(NSString *)title
                       message:(NSString *)message
                         style:(UIAlertViewStyle)style
+                 keyboradType:(UIKeyboardType)keyboardType
             cancelButtonTitle:(NSString *)cancelButtonTitle
             otherButtonTitles:(NSArray *)otherButtonTitles
                      tapBlock:(UIAlertViewCompletionBlock)tapBlock {
@@ -70,12 +71,30 @@ static const void *UIAlertViewShouldEnableFirstOtherButtonBlockKey  = &UIAlertVi
     }
     
     [alertView show];
+    [[alertView textFieldAtIndex:0] setKeyboardType:keyboardType];
     
 #if !__has_feature(objc_arc)
     return [alertView autorelease];
 #else
     return alertView;
 #endif
+}
+
++ (instancetype)showWithTitle:(NSString *)title
+                      message:(NSString *)message
+                        style:(UIAlertViewStyle)style
+            cancelButtonTitle:(NSString *)cancelButtonTitle
+            otherButtonTitles:(NSArray *)otherButtonTitles
+                     tapBlock:(UIAlertViewCompletionBlock)tapBlock {
+    
+    return [self showWithTitle:title
+                       message:message
+                         style:style
+                  keyboradType:UIKeyboardTypeDefault
+             cancelButtonTitle:cancelButtonTitle
+             otherButtonTitles:otherButtonTitles
+                      tapBlock:tapBlock];
+    
 }
 
 
@@ -88,6 +107,7 @@ static const void *UIAlertViewShouldEnableFirstOtherButtonBlockKey  = &UIAlertVi
     return [self showWithTitle:title
                        message:message
                          style:UIAlertViewStyleDefault
+                  keyboradType:UIKeyboardTypeDefault
              cancelButtonTitle:cancelButtonTitle
              otherButtonTitles:otherButtonTitles
                       tapBlock:tapBlock];
