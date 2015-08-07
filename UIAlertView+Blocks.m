@@ -113,6 +113,19 @@ static const void *UIAlertViewShouldEnableFirstOtherButtonBlockKey  = &UIAlertVi
                       tapBlock:tapBlock];
 }
 
++ (instancetype)showWithTitle:(NSString *)title
+                      message:(NSString *)message
+            cancelButtonTitle:(NSString *)cancelButtonTitle {
+    
+    return [self showWithTitle:title
+                       message:message
+                         style:UIAlertViewStyleDefault
+                  keyboradType:UIKeyboardTypeDefault
+             cancelButtonTitle:cancelButtonTitle
+             otherButtonTitles:nil
+                      tapBlock:nil];
+}
+
 #pragma mark -
 
 - (void)_checkAlertViewDelegate {

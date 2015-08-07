@@ -35,6 +35,10 @@ typedef void (^UIAlertViewCompletionBlock) (UIAlertView * __nonnull alertView, N
 
 + (nonnull instancetype)showWithTitle:(nullable NSString *)title
                               message:(nullable NSString *)message
+                    cancelButtonTitle:(nullable NSString *)cancelButtonTitle;
+
++ (nonnull instancetype)showWithTitle:(nullable NSString *)title
+                              message:(nullable NSString *)message
                                 style:(UIAlertViewStyle)style
                     cancelButtonTitle:(nullable NSString *)cancelButtonTitle
                     otherButtonTitles:(nullable NSArray *)otherButtonTitles
