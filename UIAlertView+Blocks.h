@@ -40,6 +40,14 @@ typedef void (^UIAlertViewCompletionBlock) (UIAlertView * __nonnull alertView, N
 + (nonnull instancetype)showWithTitle:(nullable NSString *)title
                               message:(nullable NSString *)message
                                 style:(UIAlertViewStyle)style
+                         keyboradType:(UIKeyboardType)keyboardType
+                    cancelButtonTitle:(nullable NSString *)cancelButtonTitle
+                    otherButtonTitles:(nullable NSArray *)otherButtonTitles
+                             tapBlock:(nullable UIAlertViewCompletionBlock)tapBlock;
+
++ (nonnull instancetype)showWithTitle:(nullable NSString *)title
+                              message:(nullable NSString *)message
+                                style:(UIAlertViewStyle)style
                     cancelButtonTitle:(nullable NSString *)cancelButtonTitle
                     otherButtonTitles:(nullable NSArray *)otherButtonTitles
                              tapBlock:(nullable UIAlertViewCompletionBlock)tapBlock;
